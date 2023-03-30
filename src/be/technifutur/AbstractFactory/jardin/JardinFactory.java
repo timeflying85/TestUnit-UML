@@ -7,14 +7,25 @@ import be.technifutur.AbstractFactory.Porte;
 
 public class JardinFactory extends FabriqueAbstraite {
 
+    private Haie haie;
+
+    private Barriere barriere;
+
     @Override
     public Porte createPorte() {
-        return new Barriere();
+        if (this.barriere == null) {
+            this.barriere = new Barriere();
+        }
+        return this.barriere;
     }
+
 
     @Override
     public Mur createMur() {
-        return new Haie();
+        if(this.haie == null){
+            this.haie = new Haie();
+        }
+        return this.haie;
     }
 
     @Override
